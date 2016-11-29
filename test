@@ -1,11 +1,1 @@
 fd = [Salut je suis un file descriptor]
-BUFF_SIZE = 4;
-buff = Salu;
-taille de buff = 4;
-
-swap = Salu;
-free (buff);
-buff = NULL;
-buff malloc BUFF_SIZE + BUFF_SIZE;
-
-ft_strcat(swap)
