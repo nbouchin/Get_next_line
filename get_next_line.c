@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 13:21:55 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/29 15:30:19 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/01 11:59:36 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,28 @@
 int		get_next_line(const int fd, char **line)
 {
 	char			buff[BUFF_SIZE + 1];
-	char static		*static_buff;
+	char static		*sb;
+	int i;
 
-	*line = ft_strnew(0);
+	i = 0;
+	*line = ft_strnew(1);
+	if (!line)
+		return (-1);
 	while (!ft_strchr(buff, '\n'))
 	{
-		read(fd, &buff, BUFF_SIZE);
-		*line = ft_strjoin(*line, buff);
+		if (!(read(fd, &buff, BUFF_SIZE) > 0))
+			return (0);
+		if (!ft_strchr(buff, '\n'))
+			*line = ft_strjoin(*line, buff);
+		if (ft_strchr(buff, '\n'))
+		{
+			while (buff[i - 1] != '\n')
+				i++;
+			*line = ft_strjoin(sb, *line);
+			*line = ft_strjoin(*line, buff);
+			sb = ft_strsub(buff,i , ft_strlen(*line));
+		}
 	}
+	*line = ft_strsub(*line, 0, ft_linelen(*line));
 	return (1);
-}
-
-int main (int argc, char **argv)
-{
-	   char *test;
-
-	   get_next_line(0, &test);
-	   ft_putstr("========= line ==========\n");
-	   ft_putstr(test);
-	   ft_putstr("====== End of Line ======\n");
 }

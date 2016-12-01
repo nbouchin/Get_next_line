@@ -6,7 +6,7 @@
 /*   By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:14:24 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/23 12:26:34 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/01 11:57:04 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,5 @@ double				ft_power(double n, int pow);
 int					ft_islower(int c);
 int					ft_isupper(int c);
 int					ft_isspace(int c);
+size_t				ft_linelen(const char *s);
 #endif
