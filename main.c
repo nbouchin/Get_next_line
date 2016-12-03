@@ -3,14 +3,25 @@
 
 int main ()
 {
-	char   *line;
-	int   fd = open("test", O_RDONLY);
-	int   i;
+	/*gnl7_2.txt*/
+	char		*line;
+	int			fd = open("test", O_RDONLY);
+	static int	i;
 
 	while ((i = get_next_line(fd, &line)))
 	{
+
+		//ft_putnbr(i);
+		//ft_putendl("");
 		ft_putendl(line);
 		ft_memdel((void**)&line);
 	}
 	close(fd);
+	/*
+
+	   char *line;
+
+	   get_next_line(0, &line);
+	   ft_putstr(line);
+	   */
 }

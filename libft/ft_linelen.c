@@ -6,13 +6,13 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 11:54:20 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/01 11:56:25 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/01 13:55:03 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	   ft_linelen(const char *s)
+size_t	ft_linelen(const char *s)
 {
 	int i;
 
