@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 11:16:49 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/03 12:54:20 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/03 13:55:37 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		get_next_line(const int fd, char **line)
 	char static		*sb;
 	int				ret;
 
-	if (!line || fd < 0 || read(fd, 0, 0))
+	if (!line || fd < 0 || read(fd, 0, 0) == -1)
 		return (-1);
 	buff = ft_strnew(BUFF_SIZE + 1);
 	*line = ft_strnew(BUFF_SIZE);
@@ -66,12 +66,12 @@ int		get_next_line(const int fd, char **line)
 				ft_strcat(*line, sb);
 			}
 			*line = ft_realloc(*line, BUFF_SIZE);
-			ft_strcat(*line, buff);
+			//ft_strcat(*line, buff);
+			ft_strcat(*line, ft_strsub(buff, 0, ft_linelen(buff)));
 			sb = ft_strsub(buff,ft_linelen(buff) , ft_strlen(*line));
 			ft_strdel(&sb);
 		}
 	}
 	ft_strdel(&buff);
-	*line = ft_strsub(*line, 0, ft_linelen(*line));
 	return (1);
 }
