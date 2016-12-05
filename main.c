@@ -12,7 +12,6 @@ int main ()
 	{
 
 		//ft_putnbr(i);
-		//ft_putendl("");
 		ft_putendl(line);
 		ft_memdel((void**)&line);
 	}

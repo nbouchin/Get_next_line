@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 11:16:49 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/03 13:55:37 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/05 13:25:55 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,15 @@ int		get_next_line(const int fd, char **line)
 				return (1);
 			}
 		}
-		buff[ret] = 0;
+		buff[ret] = '\0';
 		if (!ft_strchr(buff, '\n'))
 		{
+			if (sb)
+			{
+				*line = ft_realloc(*line, ft_strlen(sb));
+				*line = ft_strjoin(sb, *line);
+				ft_strdel(&sb);
+			}
 			*line = ft_realloc(*line, BUFF_SIZE);
 			ft_strcat(*line, buff);
 		}
@@ -63,13 +69,13 @@ int		get_next_line(const int fd, char **line)
 			if (sb)
 			{
 				*line = ft_realloc(*line, ft_strlen(sb));
-				ft_strcat(*line, sb);
+				*line = ft_strjoin(sb, *line);
 			}
 			*line = ft_realloc(*line, BUFF_SIZE);
-			//ft_strcat(*line, buff);
-			ft_strcat(*line, ft_strsub(buff, 0, ft_linelen(buff)));
-			sb = ft_strsub(buff,ft_linelen(buff) , ft_strlen(*line));
-			ft_strdel(&sb);
+			//ft_strcat(*line, ft_strsub(buff, 0, ft_linelen(buff)));
+			ft_strcat(*line, ft_strsub(buff, 0, ft_strlen(buff) - 1));
+			sb = ft_strsub(buff, ft_linelen(buff) + 1, ft_strlen(*line));
+
 		}
 	}
 	ft_strdel(&buff);
