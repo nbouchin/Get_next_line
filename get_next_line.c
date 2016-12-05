@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 11:16:49 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/05 13:25:55 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/05 14:22:11 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,55 +29,32 @@ int		get_next_line(const int fd, char **line)
 {
 	char			*buff;
 	char static		*sb;
-	int				ret;
+	int				i;
 
+	i = 0;
 	if (!line || fd < 0 || read(fd, 0, 0) == -1)
 		return (-1);
-	buff = ft_strnew(BUFF_SIZE + 1);
-	*line = ft_strnew(BUFF_SIZE);
+	if (sb)
+		buff = ft_strdup(sb);
+	else
+		buff = ft_strnew(0);
+	buff = ft_realloc(buff, BUFF_SIZE);
 	while (!ft_strchr(buff, '\n'))
 	{
-		if (!((ret = read(fd, buff, BUFF_SIZE)) > 0))
-		{
-			if (buff[0] == '\0')
-			{
-				ft_strdel(&buff);
-				ft_strdel(&sb);
-				ft_strdel(line);
-				return (0);
-			}
-			else
-			{
-				ft_strdel(&buff);
-				return (1);
-			}
-		}
-		buff[ret] = '\0';
-		if (!ft_strchr(buff, '\n'))
-		{
-			if (sb)
-			{
-				*line = ft_realloc(*line, ft_strlen(sb));
-				*line = ft_strjoin(sb, *line);
-				ft_strdel(&sb);
-			}
-			*line = ft_realloc(*line, BUFF_SIZE);
-			ft_strcat(*line, buff);
-		}
-		if (ft_strchr(buff, '\n'))
-		{
-			if (sb)
-			{
-				*line = ft_realloc(*line, ft_strlen(sb));
-				*line = ft_strjoin(sb, *line);
-			}
-			*line = ft_realloc(*line, BUFF_SIZE);
-			//ft_strcat(*line, ft_strsub(buff, 0, ft_linelen(buff)));
-			ft_strcat(*line, ft_strsub(buff, 0, ft_strlen(buff) - 1));
-			sb = ft_strsub(buff, ft_linelen(buff) + 1, ft_strlen(*line));
-
-		}
+		if (read(fd, buff + ft_strlen(buff), BUFF_SIZE) <= 0)
+			break ;
+		buff = ft_realloc(buff, BUFF_SIZE);
 	}
+	i = ft_strchr(buff, '\n') ? ft_strchr(buff, '\n') - buff : -1;
+	if (i < 0)
+	{
+		*line = ft_strdup(buff);
+		sb = NULL;
+		ft_strdel(&buff);
+		return (0);
+	}
+	*line = ft_strsub(buff, 0, i);
+	sb = ft_strsub(buff, i + 1, ft_strlen(buff) + i);
 	ft_strdel(&buff);
 	return (1);
 }
