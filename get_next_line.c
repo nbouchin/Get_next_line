@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 11:16:49 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/05 14:22:11 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/05 17:44:12 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,18 @@ int		get_next_line(const int fd, char **line)
 	if (i < 0)
 	{
 		*line = ft_strdup(buff);
-		sb = NULL;
-		ft_strdel(&buff);
-		return (0);
+		if (*line[0] != '\0')
+		{
+			sb = NULL;
+			ft_strdel(&buff);
+			return (1);
+		}
+		else
+		{
+			sb = NULL;
+			ft_strdel(&buff);
+			return (0);
+		}
 	}
 	*line = ft_strsub(buff, 0, i);
 	sb = ft_strsub(buff, i + 1, ft_strlen(buff) + i);

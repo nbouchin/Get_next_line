@@ -5,7 +5,7 @@ int main ()
 {
 	/*gnl7_2.txt*/
 	char		*line;
-	int			fd = open("test", O_RDONLY);
+	int			fd = open("gnl7_2.txt", O_RDONLY);
 	static int	i;
 
 	while ((i = get_next_line(fd, &line)))
