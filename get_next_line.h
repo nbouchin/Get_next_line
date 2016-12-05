@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 13:22:01 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/05 17:43:47 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/05 17:47:54 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
-# define BUFF_SIZE 32
+# define BUFF_SIZE 1
 
 int				get_next_line(const int fd, char **line);
 

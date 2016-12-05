@@ -6,11 +6,15 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:47:32 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/21 09:47:33 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/26 15:53:29 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Ecrit l’entier n sur le descripteur de fichier fd.
+*/
 
 void	ft_putnbr_fd(int n, int fd)
 {

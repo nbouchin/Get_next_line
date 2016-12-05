@@ -6,7 +6,7 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:52:55 by nbouchin          #+#    #+#              #
-#    Updated: 2016/12/01 13:53:31 by nbouchin         ###   ########.fr        #
+#    Updated: 2016/11/23 12:52:20 by nbouchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ ft_isprint.c ft_memdel.c ft_putnbr.c ft_strcpy.c \
 ft_strlcat.c ft_strnequ.c ft_strtrim.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 ft_lstiter.c ft_lstmap.c ft_strrev.c ft_power.c \
-ft_islower.c ft_isupper.c ft_isspace.c ft_linelen.c
+ft_islower.c ft_isupper.c ft_isspace.c
 
 OBJ = $(SRC:.c=.o)
 

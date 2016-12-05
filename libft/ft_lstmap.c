@@ -6,11 +6,17 @@
 /*   By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 12:44:34 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/10 17:39:22 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/26 16:04:06 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Parcourt la liste lst en appliquant à chaque maillon la fonction f et crée
+**	une nouvelle liste “fraiche” avec malloc(3) résultant des applications
+**	successives. Si une allocation échoue, la fonction renvoie NULL.
+*/
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {

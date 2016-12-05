@@ -6,11 +6,15 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:47:43 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/21 09:47:56 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/30 10:24:37 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Affiche la chaine s sur la sortie standard.
+*/
 
 void	ft_putstr(char const *s)
 {

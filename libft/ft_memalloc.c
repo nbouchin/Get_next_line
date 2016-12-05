@@ -6,11 +6,17 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:45:28 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/21 09:45:32 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/26 14:50:07 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Alloue (avec malloc(3)) et retourne une zone de mémoire
+**	“fraiche”. La mémoire allouée est initialisée à 0.
+**	Si l’allocation échoue, la fonction renvoie NULL.
+*/
 
 void	*ft_memalloc(size_t size)
 {

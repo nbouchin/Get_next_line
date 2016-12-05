@@ -6,11 +6,16 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:48:32 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/21 09:48:33 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/26 14:54:19 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Assigne la valeur ’\0’ à tous les caractères de la chaine passée
+**	en paramètre.
+*/
 
 void	ft_strclr(char *s)
 {

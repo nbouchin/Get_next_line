@@ -6,11 +6,18 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:45:16 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/21 09:45:17 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/26 15:49:18 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Alloue (avec malloc(3)) et retourne une chaine de caractères “fraiche”
+**	terminée par un ’\0’ représentant l’entier n passé en paramètre.
+**	Les nombres négatifs doivent être gérés. Si l’allocation échoue,
+**	la fonction renvoie NULL.
+*/
 
 static long int	n_len(long int n)
 {

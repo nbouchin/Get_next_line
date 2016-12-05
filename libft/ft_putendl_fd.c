@@ -6,11 +6,15 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 09:47:00 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/11/21 09:47:01 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/11/26 15:52:55 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**	Ecrit la chaine s sur le descripteur de fichier fd suivi d’un ’\n’.
+*/
 
 void	ft_putendl_fd(char const *s, int fd)
 {
