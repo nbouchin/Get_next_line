@@ -1,26 +1,26 @@
+#include <stdio.h>
 #include "get_next_line.h"
-#include <fcntl.h>
-
-int main ()
+int             main(int argc, char **argv)
 {
-	/*gnl7_2.txt*/
-	char		*line;
-	int			fd = open("gnl7_2.txt", O_RDONLY);
-	static int	i;
-
-	while ((i = get_next_line(fd, &line)))
+	int     fd;
+	int     fd1;
+	int     res;
+	char    *str;
+	res = 0;
+	fd1 = 0;
+	if (!(fd = open(argv[argc - 1], O_RDONLY)))
+		return (1);
+	//read(fd, str1 + (ft_strlen(str1) - 1), BUFF_SIZE);
+	//printf("str1 vaut donc %s\n", str1);
+	while ((res = get_next_line(fd, &str)) > 0)
 	{
-
-		//ft_putnbr(i);
-		ft_putendl(line);
-		ft_memdel((void**)&line);
+		ft_putendl(str);
+		//printf("res de gnl vaut %d \n", res);
+		ft_strdel(&str);
 	}
-	close(fd);
-	/*
-
-	   char *line;
-
-	   get_next_line(0, &line);
-	   ft_putstr(line);
-	   */
+	if (!(close(fd1)))
+		return (1);
+	if (!(close(fd)))
+		return (1);
+	return (0);
 }

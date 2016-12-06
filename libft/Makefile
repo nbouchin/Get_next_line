@@ -6,17 +6,15 @@
 #    By: nbouchin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:52:55 by nbouchin          #+#    #+#              #
-#    Updated: 2016/11/23 12:52:20 by nbouchin         ###   ########.fr        #
+#    Updated: 2016/12/06 11:11:45 by nbouchin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
 CC = gcc
-
 FLAG = -Wall -Wextra -Werror
-
 RM = rm -Rf
+HEADER = includes/
 
 SRC = ft_atoi.c ft_itoa.c ft_memmove.c ft_putstr.c \
 ft_strdel.c ft_strlen.c ft_strnew.c ft_tolower.c \
@@ -44,8 +42,8 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-%.o: %.c
-	$(CC) -o $@ -c $< $(FLAG)
+%.o: %.c $(HEADER)libft.h
+	$(CC) $(FLAG) -o $@ -c $< -I $(HEADER)
 
 clean:
 	$(RM) $(OBJ)
