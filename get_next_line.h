@@ -6,7 +6,7 @@
 /*   By: nbouchin <nbouchin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 13:22:01 by nbouchin          #+#    #+#             */
-/*   Updated: 2016/12/06 12:38:57 by nbouchin         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:43:16 by nbouchin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,5 @@
 # define BUFF_SIZE 321
 
 int				get_next_line(const int fd, char **line);
-
-typedef struct	s_sbuff
-{
-	const int	fd;
-	char		*static_buff;
-}				t_sbuff;
 
 #endif
